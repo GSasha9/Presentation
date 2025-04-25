@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background="#000706" data-auto-animate>
+          <img src="img/Acellus-World-History-720x388.jpg" />
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <img src="img/Acellus.png" />
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <h2 data-id="code-title">History API</h2>
+          <p>
+            The History API provides access to the browser's session history
+            through the history global object.
+          </p>
+          <div
+            class="tenor-gif-embed"
+            data-postid="7853216"
+            data-share-method="host"
+            data-aspect-ratio="1.79104"
+            data-width="50%"
+          >
+            <a
+              href="https://tenor.com/view/jay-leno-back-and-forth-cant-decide-gif-7853216"
+            ></a>
+          </div>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <h2 data-id="code-title">Travelling through the history</h2>
+          <img src="img/volga.jpg" height="300" />
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <p>
+            For travelling through the user's history we are using this methods:
+          </p>
+          <ul>
+            <li style="color: darkgreen">back()</li>
+          </ul>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <p>
+            For travelling through the user's history we are using this methods:
+          </p>
+          <ul>
+            <li style="color: darkgreen">back()</li>
+            <li style="color: darkgoldenrod">forward()</li>
+          </ul>
+        </section>
+
+        <section data-auto-animate>
+          <section data-background="#000706" data-auto-animate>
+            <p>
+              For travelling through the user's history we are using this
+              methods:
+            </p>
+            <ul>
+              <li style="color: darkgreen">back()</li>
+              <li style="color: darkgoldenrod">forward()</li>
+              <li style="color: darkred">go()</li>
+            </ul>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>
+              Method back() acts exactly as if the user clicked on the Back
+              button in their browser toolbar.
+            </p>
+            <div
+              class="tenor-gif-embed"
+              data-postid="5853460179373123765"
+              data-share-method="host"
+              data-aspect-ratio="1.63158"
+              data-width="50%"
+            >
+              <a
+                href="https://tenor.com/view/willow-kit-tanthalos-im-going-back-going-back-im-heading-back-gif-5853460179373123765"
+              ></a>
+            </div>
+            <script
+              type="text/javascript"
+              async
+              src="https://tenor.com/embed.js"
+            ></script>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+							history.back();
+						</code></pre>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>To move forward</p>
+            <p>(as if the user clicked the Forward button),</p>
+            <p>use</p>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+							history.forward();
+						</code></pre>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>
+              go() method helps us to load a specific page from session history
+            </p>
+
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+							history.go();
+						</code></pre>
+            <p style="font-size: 25px">
+              (the current page's relative position is 0)
+            </p>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>go() method to load a specific page from session history</p>
+
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+							history.go(-1); // move back one page
+						</code></pre>
+            <p style="font-size: 25px">
+              (the current page's relative position is 0)
+            </p>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>go() method to load a specific page from session history</p>
+
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+							history.go(2); // move forward two pages
+						</code></pre>
+            <p style="font-size: 25px">
+              (the current page's relative position is 0)
+            </p>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>go() method to refresh the current page</p>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+							history.go(0); // or history.go();
+						</code></pre>
+          </section>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <h2 style="text-transform: none">replaceState and pushState</h2>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <p>Method replaceState replaces the current URL in the address bar</p>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs javascript" data-trim data-line-numbers>
+				history.replaceState(null, null, 'hello');
+						</code></pre>
+          <p style="font-size: 25px; margin-top: 50px">
+            *The replaceState method above switches out the URL in the address
+            bar with ‘/hello’ despite no assets being requested and the window
+            remaining on the same page
+          </p>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <p>
+            But there is another method that adds URL to the browser’s history
+          </p>
+          <div
+            class="tenor-gif-embed"
+            data-postid="16088848262019650589"
+            data-share-method="host"
+            data-aspect-ratio="0.991667"
+            data-width="50%"
+          >
+            <a
+              href="https://tenor.com/view/push-pushcat-solana-pushcto-cute-gif-16088848262019650589"
+            ></a>
+          </div>
+          <script
+            type="text/javascript"
+            async
+            src="https://tenor.com/embed.js"
+          ></script>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <p>
+            pushState method changes our history to include whatever URL we just
+            passed into it
+          </p>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs javascript" data-trim data-line-numbers>
+				history.pushState(null, null, 'hello');
+						  </code></pre>
+        </section>
+
+        <section>
+          <section data-background="#000706" data-auto-animate>
+            <p>Parameters</p>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+						history.pushState(null, null, 'hello');
+								  </code></pre>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>Parameters</p>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+					  history.pushState([data], null, 'hello');
+								  </code></pre>
+            <ul>
+              <li style="margin-bottom: 40px">
+                Data - it is any JavaScript object (or value) that you want to
+                associate with the current state of the page.
+              </li>
+            </ul>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>Parameters</p>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+					  history.pushState([data], [title], 'hello');
+								  </code></pre>
+            <ul>
+              <li style="margin-bottom: 40px">
+                Data - it is any JavaScript object (or value) that you want to
+                associate with the current state of the page.
+              </li>
+              <li style="margin-bottom: 40px">
+                Title. This parameter exists for historical reasons, and cannot
+                be omitted; passing an empty string is safe against future
+                changes to the method.
+              </li>
+            </ul>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p>Parameters</p>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs javascript" data-trim data-line-numbers>
+					  history.pushState([data], [title], [url]);
+								  </code></pre>
+            <ul>
+              <li style="margin-bottom: 40px">
+                Data - it is any JavaScript object (or value) that you want to
+                associate with the current state of the page.
+              </li>
+              <li style="margin-bottom: 40px">
+                Title. This parameter exists for historical reasons, and cannot
+                be omitted; passing an empty string is safe against future
+                changes to the method.
+              </li>
+              <li style="margin-bottom: 40px">
+                Final parameter is the URL we want to appear in the
+                address bar
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <div
+            class="tenor-gif-embed"
+            data-postid="16860971939206852614"
+            data-share-method="host"
+            data-aspect-ratio="0.779592"
+            data-width="50%"
+          >
+            <a
+              href="https://tenor.com/view/oops-yikes-awkward-jennifer-lawrence-gif-16860971939206852614"
+            ></a>
+          </div>
+          <script
+            type="text/javascript"
+            async
+            src="https://tenor.com/embed.js"
+          ></script>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <p>
+            A Javascript router is a key component in most frontend frameworks.
+            It is the piece of software in charge to organize the states of the
+            application, switching between different views
+          </p>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <div
+            class="tenor-gif-embed"
+            data-postid="14218741314265220518"
+            data-share-method="host"
+            data-aspect-ratio="1"
+            data-width="50%"
+          >
+            <a
+              href="https://tenor.com/view/enzodeg40-how-it-works-kitchen-cooking-oven-oven-gif-14218741314265220518"
+            ></a>
+          </div>
+          <script
+            type="text/javascript"
+            async
+            src="https://tenor.com/embed.js"
+          ></script>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <p>
+            The router will be in charge of simulating transitions between
+            documents by watching changes on the URL. When the document is
+            reloaded or the URL is modified somehow, it will detect that change
+            and render the view that is associated with the new URL
+          </p>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs javascript" data-trim data-line-numbers>
+			// Adds to browser history
+			history.pushState({}, "About Page", "/about");
+
+			// Doesn't
+			history.replaceState({}, "About Page", "/about");
+
+		</code></pre>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs javascript" data-trim data-line-numbers>
+			  // Adds to browser history
+			  history.pushState({}, "About Page", "/about");
+
+			  // Doesn't
+			  history.replaceState({}, "About Page", "/about");
+			</code></pre>
+          <pre
+            data-id="code-animation"
+          ><code class="hljs javascript" data-trim data-line-numbers>
+			// Hardcore
+			document.body.innerHTML = `<div>New body who dis.</div>`;
+			</code></pre>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <h2>Single Page Application (SPA)</h2>
+          <div
+            class="tenor-gif-embed"
+            data-postid="25746719"
+            data-share-method="host"
+            data-aspect-ratio="1"
+            data-width="50%"
+          >
+            <a href="https://tenor.com/view/dog-images-gif-25746719"></a>
+          </div>
+          <script
+            type="text/javascript"
+            async
+            src="https://tenor.com/embed.js"
+          ></script>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <iframe
+            width="960"
+            height="715"
+            src="https://www.youtube.com/embed/35DNcO6GoT8?si=a8YcSa8AWHm0Juj1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </section>
+
+        <section data-background="#000706" data-auto-animate>
+          <div
+            class="tenor-gif-embed"
+            data-postid="13670748107262456691"
+            data-share-method="host"
+            data-aspect-ratio="1"
+            data-width="50%"
+          >
+            <a
+              href="https://tenor.com/view/but-why-homelander-the-boys-i-don%27t-get-it-huh-gif-13670748107262456691"
+            ></a>
+          </div>
+          <script
+            type="text/javascript"
+            async
+            src="https://tenor.com/embed.js"
+          ></script>
+        </section>
+
+        <section>
+          <section data-background="#000706" data-auto-animate>
+            <p style="margin-bottom: 35px">
+              Single Page Applications are most often used in services where
+              users spend a lot of time on one page or interact with it
+              frequently, for example:
+            </p>
+            <ul>
+              <li style="font-size: 35px">
+                checking emails and marking messages as spam;
+              </li>
+            </ul>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p style="margin-bottom: 35px">
+              Single Page Applications are most often used in services where
+              users spend a lot of time on one page or interact with it
+              frequently, for example:
+            </p>
+            <ul>
+              <li style="font-size: 35px">
+                checking emails and marking messages as spam;
+              </li>
+              <li style="font-size: 35px">
+                writing posts and commenting on others;
+              </li>
+            </ul>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p style="margin-bottom: 35px">
+              Single Page Applications are most often used in services where
+              users spend a lot of time on one page or interact with it
+              frequently, for example:
+            </p>
+            <ul>
+              <li style="font-size: 35px">
+                checking emails and marking messages as spam;
+              </li>
+              <li style="font-size: 35px">
+                writing posts and commenting on others;
+              </li>
+              <li style="font-size: 35px">watching TV shows;</li>
+            </ul>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <p style="margin-bottom: 35px">
+              Single Page Applications are most often used in services where
+              users spend a lot of time on one page or interact with it
+              frequently, for example:
+            </p>
+            <ul>
+              <li style="font-size: 35px">
+                checking emails and marking messages as spam;
+              </li>
+              <li style="font-size: 35px">
+                writing posts and commenting on others;
+              </li>
+              <li style="font-size: 35px">watching TV shows;</li>
+              <li style="font-size: 35px">
+                browsing images and organizing them into themed boards
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#000706" data-auto-animate>
+            <img
+              src="img/official-gmail-icon-2020-.svg"
+              height="350"
+              data-preview-image
+            />
+          </section>
+          <section data-background="#000706" data-auto-animate>
+            <img src="img/Logonetflix.png" height="350" data-preview-image />
+          </section>
+          <section data-background="#000706" data-auto-animate>
+            <img
+              src="img/Facebook_f_logo_(2021).svg.png"
+              height="350"
+              data-preview-image
+            />
+          </section>
+          <section data-background="#000706" data-auto-animate>
+            <img src="img/Pinterest_Logo.svg.png" data-preview-image />
+          </section>
+        </section>
+
+        <section>
+          <section data-background="#000706" data-auto-animate>
+            <h3 style="color: darkgreen;">Advantages of SPAs</h3>
+            <ul>
+              <li style="list-style: none">SPAs are fast</li>
+            </ul>
+            <div
+              class="tenor-gif-embed"
+              data-postid="26117164"
+              data-share-method="host"
+              data-aspect-ratio="1.77778"
+              data-width="55%"
+            >
+              <a href="https://tenor.com/view/flash-run-fast-gif-26117164"></a>
+            </div>
+            <script
+              type="text/javascript"
+              async
+              src="https://tenor.com/embed.js"
+            ></script>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <h3 style="color: darkgreen;">Advantages of SPAs</h3>
+            <ul>
+              <li>SPAs are fast</li>
+              <li>JSON simplifies multi-platform development</li>
+            </ul>
+          </section>
+
+          <section data-background="#000706" data-auto-animate>
+            <h3 style="color: darkgreen;">Advantages of SPAs</h3>
+            <ul>
+              <li>SPAs are fast</li>
+              <li>JSON simplifies multi-platform development</li>
+              <li style="list-style: none">SPAs are flexible</li>
+            </ul>
+
+            <div
+              class="tenor-gif-embed"
+              data-postid="8571541"
+              data-share-method="host"
+              data-aspect-ratio="0.777385"
+              data-width="30%"
+            >
+              <a href="https://tenor.com/view/kitten-stretch-gif-8571541"
+                ></a
+              >
+            </div>
+            <script
+              type="text/javascript"
+              async
+              src="https://tenor.com/embed.js"
+            ></script>
+          </section>
+
+		  <section data-background="#000706" data-auto-animate>
+            <h3 style="color: darkgreen;">Advantages of SPAs</h3>
+            <ul>
+              <li>SPAs are fast</li>
+              <li>JSON simplifies multi-platform development</li>
+              <li>SPAs are flexible</li>
+			  <li>SPAs work everywhere</li>
+            </ul>
+
+          </section>
+
+		</section>
+
+
+		  <section>
+
+			<section data-background="#000706" data-auto-animate>
+				<h3 style="color: darkred;">Disadvantages of SPAs</h3>
+			  </section>
+
+			<section data-background="#000706" data-auto-animate>
+			  <h3>Disadvantages of SPAs</h3>
+			  <ul>
+				<li>SEO challenges</li>
+			  </ul>
+			</section>
+
+			<section data-background="#000706" data-auto-animate>
+				<h3 style="color: darkred;">Disadvantages of SPAs</h3>
+				<ul>
+				  <li>SEO challenges</li>
+				  <li>Analytics issues</li>
+				</ul>
+			  </section>
+
+			  <section data-background="#000706" data-auto-animate>
+				<h3 style="color: darkred;">Disadvantages of SPAs</h3>
+				<ul>
+				  <li>SEO challenges</li>
+				  <li>Analytics issues</li>
+				  <li>Dependence on the internet</li>
+				</ul>
+			  </section>
+
+			  <section data-background="#000706" data-auto-animate>
+				<h3 style="color: darkred;">Disadvantages of SPAs</h3>
+				<ul>
+				  <li>SEO challenges</li>
+				  <li>Analytics issues</li>
+				  <li>Dependence on the internet</li>
+				  <li>Not beginner-friendly</li>
+				</ul>
+			  </section>
+
+
+
+
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
